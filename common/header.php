@@ -1,4 +1,7 @@
-<?php require_once 'includes/config.php';?>
+<?php require_once 'includes/config.php';
+ob_start();
+session_start()
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,16 +12,10 @@
 <!-- CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="./public/css/style.css">
 </head>
 <body>
 
-<style>
-.wrapper{
-    padding-top: 30px;
-}
-
-</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 <div class="container">
   <a class="navbar-brand" href="<?php echo SITEURL; ?>"><i class="fa fa-address-book"></i> ContactBook</a>
@@ -28,13 +25,13 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item ">
-        <a class="nav-link" href="/contactbook/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/contact-LMS/">Home <span class="sr-only">(current)</span></a>
       </li>
             <li class="nav-item"  active>
-        <a class="nav-link" href="/contactbook/signup.php">Signup</a>
+        <a class="nav-link" href="/contact-LMS/signup.php">Signup</a>
       </li>
       <li class="nav-item" >
-        <a class="nav-link" href="/contactbook/login.php">Login</a>
+        <a class="nav-link" href="/contact-LMS/login.php">Login</a>
       </li>
           </ul>
   </div>

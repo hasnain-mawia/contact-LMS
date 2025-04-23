@@ -2,13 +2,15 @@
 ob_start();
 session_start();
 require_once '../includes/config.php';
+require_once '../includes/db.php';
 $errors = [];
 if(isset($_POST)){
-    $firstName = $_POST['fname'];
-    $lastName = $_POST['lname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $cpassword = $_POST['cpassword'];
+    // print_arr($_POST); die();
+    $firstName = trim($_POST['fname']);
+    $lastName = trim($_POST['lname']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $cpassword = trim($_POST['cpassword'])  ;
 
     if(empty($firstName)){
      $errors[] = "First name must required";   
@@ -30,12 +32,18 @@ if(isset($_POST)){
     }
     if(!empty($errors)){
         $_SESSION['errors'] = $errors;
-        header('location:' . SITEURL . 'signup.php');
+        header('location:'.SITEURL.'signup.php');
         exit();
     }
-
-
-    // print_arr($_POST);
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO  `users` (first_name , last_name, email , password) VALUES ('{$firstName}', '{$lastName}', '{$email}', '{$passwordHash}')";
+    $conn = db_connect();
+    if(mysqli_query($conn, $sql)){
+        db_close($conn);
+        $message = "You are registered Successfully";
+        $_SESSION['success'] = $message;    
+        header('location:'.SITEURL.'signup.php');
+}
 }
 
 ?>

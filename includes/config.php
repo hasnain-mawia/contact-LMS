@@ -1,5 +1,5 @@
 <?php
-define('SITEURL', '/contactsbook/');
+define('SITEURL', '/contact-LMS/');
 
 function print_arr($arr){
    echo "<pre>";

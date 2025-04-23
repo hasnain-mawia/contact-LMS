@@ -22,7 +22,7 @@
     </div>       
 </form>
 </article>
-<div class="border-top card-body text-center">Haven't an account? <a href="/contactsbook/signup.php">Sign Up</a></div>
+<div class="border-top card-body text-center">Haven't an account? <a href="/contact-LMS/signup.php">Sign Up</a></div>
 </div>
 </div>
 
