@@ -11,20 +11,20 @@
 <div class="alert alert-success text-center">
 <?php echo $_SESSION['success'];?>	
 </div>
+<?php unset($_SESSION['success']);?>	
 <?php
-unset($_SESSION['success']);  
 }
 ?>
 <?php if(!empty($_SESSION['errors'])){
     ?>
-    <div class="alert alert-danger">
-        <ul>
-           <?php foreach($_SESSION['errors'] as $error){
-            print '<li>' . $error . '</li>';
-           } 
-		   ?> 
+	<div class="alert alert-danger">
+		<ul>
+		<?php foreach($_SESSION['errors'] as $error){
+			print '<li>' . $error . '</li>';
+			} 
+			?> 
         </ul>
-    </div>
+		</div>
 <?php
 unset($_SESSION['errors']);  
 } ?>
@@ -63,7 +63,7 @@ unset($_SESSION['errors']);
                                          
 </form>
 </article> 
-<div class="border-top card-body text-center">Have an account? <a href="/contact-LMS/login.php">Log In</a></div>
+<div class="border-top card-body text-center">Have an account? <a href="<?php echo SITEURL .'login.php';?>">Log In</a></div>
 </div> 
 </div> 
 

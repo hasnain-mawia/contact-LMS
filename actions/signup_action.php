@@ -35,6 +35,23 @@ if(isset($_POST)){
         header('location:'.SITEURL.'signup.php');
         exit();
     }
+    if(!empty($email)){
+    $conn = db_connect();
+     $sanitizeEmail = mysqli_real_escape_string($conn, $email);
+     $emailSql = "SELECT id FROM `users` WHERE `email` = '{$sanitizeEmail}'";
+     $sqlResult = mysqli_query($conn, $emailSql);
+     $emailRow = mysqli_num_rows($sqlResult);
+     if($emailRow > 0){
+        $errors[] = "Email Address Already exists.";
+     }
+     db_close($conn);   
+    }
+    if(!empty($errors)){
+        $_SESSION['errors'] = $errors;
+        header('location:'.SITEURL.'signup.php');
+        exit();
+    }
+
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     $sql = "INSERT INTO  `users` (first_name , last_name, email , password) VALUES ('{$firstName}', '{$lastName}', '{$email}', '{$passwordHash}')";
     $conn = db_connect();
