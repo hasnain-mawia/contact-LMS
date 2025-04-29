@@ -1,4 +1,10 @@
 <?php require_once 'includes/config.php';
+
+if(isset($_SESSION['user'])){
+  print_arr($_SESSION['user']);
+}
+
+
 ob_start();
 session_start()
 ?>
