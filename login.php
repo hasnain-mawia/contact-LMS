@@ -37,7 +37,7 @@ unset($_SESSION['errors']);
     </div>       
 </form>
 </article>
-<div class="border-top card-body text-center">Haven't an account? <a href="<?php echo SITEURL . 'signup.php';?>">Sign Up</a></div>
+<div class="border-top card-body text-center">Haven't an account? <a href="<?php echo SITEURL . 'signup';?>">Sign Up</a></div>
 </div>
 </div>
 
